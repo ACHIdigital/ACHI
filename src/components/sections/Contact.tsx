@@ -107,7 +107,7 @@ export function Contact() {
                     value={formData.name}
                     onChange={handleChange}
                     placeholder="John Doe"
-                    className="bg-background/50 border-border/50 focus:border-primary"
+                    className="bg-background/50 border-border/50 focus:border-primary focus-glow"
                   />
                 </div>
                 <div>
@@ -122,7 +122,7 @@ export function Contact() {
                     value={formData.email}
                     onChange={handleChange}
                     placeholder="john@example.com"
-                    className="bg-background/50 border-border/50 focus:border-primary"
+                    className="bg-background/50 border-border/50 focus:border-primary focus-glow"
                   />
                 </div>
               </div>
@@ -138,7 +138,7 @@ export function Contact() {
                   value={formData.company}
                   onChange={handleChange}
                   placeholder="Your Company"
-                  className="bg-background/50 border-border/50 focus:border-primary"
+                  className="bg-background/50 border-border/50 focus:border-primary focus-glow"
                 />
               </div>
 
@@ -154,7 +154,7 @@ export function Contact() {
                   onChange={handleChange}
                   placeholder="Tell us about your project..."
                   rows={5}
-                  className="bg-background/50 border-border/50 focus:border-primary resize-none"
+                  className="bg-background/50 border-border/50 focus:border-primary resize-none focus-glow"
                 />
               </div>
 
@@ -162,7 +162,7 @@ export function Contact() {
                 type="submit" 
                 variant="hero" 
                 size="lg" 
-                className="w-full"
+                className="w-full btn-press"
                 disabled={isSubmitting}
               >
                 {isSubmitting ? (

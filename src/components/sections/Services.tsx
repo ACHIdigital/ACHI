@@ -109,7 +109,7 @@ export function Services() {
             <article
               key={service.title}
               className={cn(
-                'glass-panel rounded-2xl p-6 card-depth group relative overflow-hidden',
+                'glass-panel rounded-2xl p-6 card-depth group relative overflow-hidden tilt-hover glow-border',
                 service.featured && 'lg:col-span-2 lg:row-span-1'
               )}
               style={{ transitionDelay: `${index * 50}ms` }}

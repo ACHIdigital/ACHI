@@ -303,6 +303,141 @@
   .stat-number {
     font-variant-numeric: tabular-nums;
   }
+  
+  /* Skeleton Shimmer for Placeholder Cards */
+  .skeleton-shimmer {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .skeleton-box {
+    background: linear-gradient(
+      90deg,
+      hsl(var(--muted)) 0%,
+      hsl(var(--muted) / 0.5) 50%,
+      hsl(var(--muted)) 100%
+    );
+    background-size: 200% 100%;
+    animation: skeleton-shimmer 1.5s ease-in-out infinite;
+  }
+  
+  @keyframes skeleton-shimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+  }
+  
+  /* Timeline Node Animation */
+  .timeline-node {
+    animation: timeline-pulse 2s ease-in-out infinite;
+  }
+  
+  @keyframes timeline-pulse {
+    0%, 100% { box-shadow: 0 0 0 0 hsl(var(--primary) / 0.4); }
+    50% { box-shadow: 0 0 0 12px hsl(var(--primary) / 0); }
+  }
+  
+  /* Text Color Transition on Scroll */
+  .text-scroll-highlight {
+    transition: color 0.3s ease;
+  }
+  
+  .text-scroll-highlight.active {
+    color: hsl(var(--primary));
+  }
+  
+  /* Underline Draw Animation */
+  .underline-draw {
+    position: relative;
+    display: inline;
+  }
+  
+  .underline-draw::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(90deg, hsl(var(--primary)), hsl(var(--accent)));
+    border-radius: 2px;
+    transition: width 0.8s ease;
+  }
+  
+  .underline-draw.visible::after {
+    width: 100%;
+  }
+  
+  /* Staggered Text Reveal */
+  .stagger-text-container .stagger-word {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  
+  .stagger-text-container.visible .stagger-word {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* Tilt Hover Effect */
+  .tilt-hover {
+    transition: transform 0.3s ease;
+    transform-style: preserve-3d;
+  }
+  
+  .tilt-hover:hover {
+    transform: perspective(1000px) rotateX(2deg) rotateY(-2deg) translateZ(10px);
+  }
+  
+  /* Glow Border Animation */
+  .glow-border {
+    position: relative;
+  }
+  
+  .glow-border::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: inherit;
+    padding: 2px;
+    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)), hsl(var(--primary)));
+    background-size: 200% 200%;
+    animation: glow-border-animate 3s ease infinite;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .glow-border:hover::before {
+    opacity: 1;
+  }
+  
+  @keyframes glow-border-animate {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+  
+  /* Button Press Physics */
+  .btn-press {
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  
+  .btn-press:active {
+    transform: scale(0.96) translateY(2px);
+    box-shadow: 0 2px 8px hsl(var(--primary) / 0.2);
+  }
+  
+  /* Focus Glow for Inputs */
+  .focus-glow {
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+  }
+  
+  .focus-glow:focus {
+    box-shadow: 0 0 0 4px hsl(var(--primary) / 0.15), 0 0 20px hsl(var(--primary) / 0.1);
+  }
 }
 
 @layer utilities {
