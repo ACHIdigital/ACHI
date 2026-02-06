@@ -3,15 +3,16 @@ import { Header } from '@/components/layout/Header';
 import { Hero } from '@/components/sections/Hero';
 import { About } from '@/components/sections/About';
 import { Services } from '@/components/sections/Services';
-import { Blogs } from '@/components/sections/Blogs';
+import { ProcessTimeline } from '@/components/sections/ProcessTimeline';
+import { BlogPlaceholder } from '@/components/sections/BlogPlaceholder';
 import { FAQ } from '@/components/sections/FAQ';
 import { Contact } from '@/components/sections/Contact';
 import { Footer } from '@/components/layout/Footer';
 
 export default function Index() {
-  // Set dark mode by default
+  // Set light mode by default (remove dark class if present)
   useEffect(() => {
-    document.documentElement.classList.add('dark');
+    document.documentElement.classList.remove('dark');
   }, []);
 
   return (
@@ -21,7 +22,8 @@ export default function Index() {
         <Hero />
         <About />
         <Services />
-        <Blogs />
+        <ProcessTimeline />
+        <BlogPlaceholder />
         <FAQ />
         <Contact />
       </main>
