@@ -1,14 +1,11 @@
 import { useRef, useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { useMagneticButton } from '@/hooks/useMagneticButton';
-import { useMousePosition } from '@/hooks/useMousePosition';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import { ArrowRight, Play } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 export function Hero() {
-  const containerRef = useRef<HTMLElement>(null);
-  const mousePosition = useMousePosition(containerRef);
   const primaryBtnProps = useMagneticButton<HTMLButtonElement>(0.2);
   const secondaryBtnProps = useMagneticButton<HTMLButtonElement>(0.2);
   const { ref: textRef, isVisible: textVisible } = useScrollReveal<HTMLDivElement>(0.1);
@@ -31,7 +28,6 @@ export function Hero() {
 
   return (
     <section
-      ref={containerRef}
       id="home"
       className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20"
       aria-labelledby="hero-heading">
@@ -54,14 +50,6 @@ export function Hero() {
 
       </div>
 
-      {/* Mouse-tracked spotlight */}
-      <div
-        className="absolute inset-0 hero-spotlight pointer-events-none -z-5"
-        style={{
-          '--mouse-x': `${mousePosition.x}%`,
-          '--mouse-y': `${mousePosition.y}%`
-        } as React.CSSProperties}
-        aria-hidden="true" />
 
 
       {/* Content */}
